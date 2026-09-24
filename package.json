@@ -1,0 +1,29 @@
+{
+  "name": "pepebot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "PepeBot: a physical robot fronting an automated fee-routing, asset-purchase and holder-distribution loop on Solana.",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "packages/protocol",
+    "backend",
+    "automation"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w backend",
+    "sim": "tsx --env-file-if-exists=.env scripts/simulate.ts --dry-run",
+    "cycle": "npm run cycle -w automation",
+    "test": "npm test -w automation",
+    "typecheck": "tsc -p packages/protocol && tsc -p backend && tsc -p automation && tsc -p scripts",
+    "assets": "python3 scripts/readme-assets/build.py"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

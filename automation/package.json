@@ -1,0 +1,17 @@
+{
+  "name": "@pepebot/automation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "cycle": "tsx --env-file-if-exists=../.env src/index.ts --once",
+    "start": "tsx --env-file-if-exists=../.env src/index.ts",
+    "test": "node --import tsx --test test/*.test.ts"
+  },
+  "dependencies": {
+    "@pepebot/protocol": "0.1.0",
+    "@solana/web3.js": "^1.95.0",
+    "yaml": "^2.6.0",
+    "zod": "^3.23.0"
+  }
+}

@@ -1,0 +1,51 @@
+# PepeBot allocation config (EXAMPLE). Copy to config/allocation.yaml and edit.
+# Nothing here is live until you set dry_run: false AND PEPEBOT_LIVE=true
+# AND a live executor is implemented (it is not, in this build).
+
+cycle:
+  interval_seconds: 3600
+  dry_run: true
+
+treasury:
+  address: "REPLACE_WITH_TREASURY_MULTISIG"
+  reserve_sol: 0.05            # kept back for network fees, never allocated
+
+allocation:                    # basis points, must sum to 10000
+  pepe_bps: 8000
+  assets_bps: 2000
+
+pepe:
+  mint: "REPLACE_WITH_PEPE_MINT"   # verify the mint yourself. Do not trust a README.
+  slippage_bps: 50
+
+assets:
+  # Each module receives a weight of the assets share. Gated / disabled modules
+  # do not spend: their share stays in the treasury for the next cycle.
+  modules:
+    - id: sol-lst
+      kind: spl-token
+      mint: "REPLACE_WITH_ASSET_MINT"
+      weight_bps: 5000
+      enabled: true
+    - id: tokenized-eq
+      kind: tokenized-equity
+      provider: null           # no provider adapter ships in this build
+      weight_bps: 5000
+      enabled: true
+      jurisdictions_allowed: []
+      requires_holder_kyc: true
+
+distribution:
+  token_mint: "REPLACE_WITH_PEPEBOT_MINT"
+  min_balance: 100000          # raw units of PEPEBOT required to be eligible
+  min_payout: 1                # raw units; smaller amounts carry to next cycle
+  batch_size: 50
+  exclude:
+    - { label: lp, address: "REPLACE_WITH_LP_VAULT" }
+    - { label: burn, address: "1nc1nerator11111111111111111111111111111111" }
+    - { label: treasury, address: "REPLACE_WITH_TREASURY_MULTISIG" }
+
+guardrails:
+  max_sol_per_cycle: 25
+  max_slippage_bps: 100
+  kill_switch_file: ./KILL
