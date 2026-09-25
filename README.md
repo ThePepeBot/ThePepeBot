@@ -3,6 +3,7 @@
 <img src="assets/readme/hero-online.svg" alt="PEPEBOT control panel: robot online, diagnostics, fee flow and event bus. All readouts simulated." width="100%"/>
 
 **A physical robot bolted to an automated onchain loop.**<br/>
+CA: 2Su1mp2yxnWqUagnGAbMkF76as8wi6NZs41pPXScpump
 Fees come in. The treasury buys PEPE. Holders receive it. The robot reacts to every step.
 
 [`THE LOOP`](#the-loop) ·
