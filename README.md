@@ -4,6 +4,7 @@
 
 **A physical robot bolted to an automated onchain loop.**<br/>
 CA: 2Su1mp2yxnWqUagnGAbMkF76as8wi6NZs41pPXScpump
+
 Fees come in. The treasury buys PEPE. Holders receive it. The robot reacts to every step.
 
 [`THE LOOP`](#the-loop) ·
